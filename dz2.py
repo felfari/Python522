@@ -1,23 +1,20 @@
-file = "text2.txt"
-f = open(file, "w")
-f.write("Тест:\n"
-        "Замена строки в текстовом файле\n"
-        "изменить строку в списке\n"
-        "записать список в файл\n")
-f.close()
-f = open(file)
-data = f.readlines()
-print(data)
-f.close()
-
-data[0]="Pos1 = 1\nPos2 = 2\n"
-data[1] = "записать список в файл\n"
-data[2] = "изменить строку в списке\n"
-print(data)
-
-f = open(file, "a")
-f.writelines(data)
-f.close()
+import os
 
 
-print " Hello World"
+def info_files(root, folder):
+    for root, dirs, files in os.walk(root):
+        for file in files:
+            file_path = os.path.join(root, file)
+            print(file_path)
+            file_size = os.path.getsize(file_path)
+            if file_size == 0:
+                os.renames(file_path, os.path.join(folder, file))
+                print(f"Файл {file} перемещен из папки {root} в папку {folder}")
+            else:
+                print(f"{file_path} - {file_size} bytes")
+
+
+info_files("Work", "Work/empty_files")
+
+
+
