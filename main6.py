@@ -8,6 +8,8 @@
 #
 # print(id(name))
 # print(id(age))
+# from calendar import month
+
 
 # a = b = c = 10
 # a, b, c = 5, "Hello", 7.2
@@ -3563,3 +3565,394 @@
 # print(os.path.isfile(r"E:\Python522\nested1\nested2\nested3\text3.txt"))
 # print(os.path.isdir(r"E:\Python522\nested1\nested2\nested3"))
 
+# import os
+# from pydoc_data.topics import topics
+# from tkinter.font import names
+
+
+# dirs = ["Work/F1", r"Work/F2/F21"]
+
+# for d in dirs:
+#     os.makedirs(d)
+# #
+# files = {
+#     "Work": ["w.txt"],
+#     r"Work\F1": ["f1.txt", 'f12.txt', 'f13.txt'],
+#     r"Work\F2\F21": ["f211.txt", "f2121.txt"]
+#
+# }
+#
+# # for key, value in files.items():
+# #     for file in value:
+# #         file_path = os.path.join(key, file)
+# #         open(file_path,"w").close()
+#
+# file_with_text= [r'Work\w.txt',r'Work\F1\f12']
+#
+# for file in file_with_text:
+#     with open(file,'w') as f:
+#         f.write(f"Текст для файла ")
+
+# def print_tree(topdown):
+#     print(f"Обход {'сверху вниз' if topdown else "снизу вверх"}')
+
+# class Point:
+#     x = 1
+#     y = 2
+#
+#
+# p1 = Point()
+# p1.x = 100
+# print(p1.x)
+# print(Point.x)
+
+# class Human:
+#     name = "name"
+#     birthday = "00.00.0000"
+#     phone = "00-00-00"
+#     country = "country"
+#     city = "city"
+#     address="steet, house"
+#
+#     def print_info(self):
+#         print(" Данные ".center(40,"*"))
+#         print(f"Имя:{self.name}\nДата рождения:{self.birthday}\n"
+#               f"Номер телефона {self.phone}\n"
+#               f"Страна: {self.country}\n"
+#               f"Город:{self.city}\n"
+#               f"Домашний адрес:{self.address}")
+#
+#     def input_info(self,first_name, birthday, phone,country,city,address):
+#         self.phone=phone
+#
+#         print("="*40)
+# h1= Human()
+# h1.print_info()
+# h1.input_info("Юлия", '23.05.1986','45-44-98','Россия',"Москва",
+#               "Чистопрудный бульвар")
+# h1.print_info()
+
+#
+# class Person:
+#     skill= 10
+#     name = ""
+#     surname = ""
+#     def print_info(self,name,surname):
+#         self.name= name
+#         self.surname = surname
+#         print("Данные : ",self.name,self.surname)
+#     def add_skill(self,k):
+#         self.skill += k
+#         print("Квалификация ", self.skill,"\n")
+#
+# p1= Person()
+# p1.print_info("Виктор","Резник")
+# p1.add_skill(3)
+#
+# p2 = Person()
+# p2.print_info("Анна",'Долгих')
+# p2.add_skill(2)
+
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#
+# p1 = Point(5, 10)
+# # print(p1.__x, p1.__y)
+# # p1.z=20
+# p1.__x = 100
+# p1.__y = "abc"
+# print(p1.__x,p1.__y)
+# print(p1.__dict__)
+
+
+# class Rectangle:
+#     def __init__(self, length=1, width=1):
+#         self.__length = length
+#         self.__width = width
+#
+#     def __check_valus(c)
+#         if isinstance(c, int) or isinstance(c, float):
+#             return True
+#         return False
+#
+#     def get_width(self):
+#         return self.__width
+#
+#     def get_length(self)
+#         return self.__length:
+#
+#         def get_width(self):
+#              self.__width = width
+#
+# class Point:
+#     __slots__ = ['x','y']
+#
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#
+#
+# p1 = Point(5, 10)
+# # p1.z = 20
+# print(p1.x,p1.y)
+#
+# # print(p1.__dict__)
+
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     def __get_coord_x(self, x):
+#         print("Вызов __setCoordX")
+#         self.__x = x
+#
+#     def __set_coord_x(self, x):
+#         print("Вызов __setCoordX")
+#         return self.__x
+#
+#     coord_x = property(__get_coord_x, __set_coord_x)
+#
+#
+# p1 = Point(5, 10)
+# p1.coord_x = 100
+# print(p1.coord_x)
+
+# class Point:
+#     __count = 0
+#
+#     def __init__(self, x=0, y=0):
+#         self.x = x
+#         self.y = y
+#         Point.__count += 1
+#     @staticmethod
+#     def get_count
+#         return Point.__count
+#
+#     def get_count():
+#         return  Point.__count
+#
+#
+# p1 = Point()
+# p2 = Point()
+# p3 = Point()
+# print(Point.get_count(p1))
+# def inc(x):
+#     return x + 1
+#
+#
+# def dec(x):
+#     return x - 1
+#
+#
+# print(inc(10), dec(10))
+#
+#
+# class Change:
+#     @staticmethod
+#     def inc(x):
+#         return x + 1
+#
+#     @staticmethod
+#     def dec(x):
+#         return x - 1
+#
+#
+# сh1 = Change()
+# print(ch1.inc(10),ch1.dec(10))
+# print(Change.inc(10), Change.dec(10))
+
+# class Numbers:
+#     @staticmethod
+#     def max(a, b, c, d):
+#         mx = a
+#         if b > mx:
+#             mx = b
+#         if c > mx:
+#             mx = c
+#         if d > mx:
+#             mx = d
+#         return mx
+#
+#     @staticmethod
+#     def min(*args):
+#         mn = args[0]
+#         for i in args:
+#             if i < mn:
+#                 mn = i
+#         return mn
+#     @staticmethod
+#     def average(*args):
+#         return sum(args)/len(args)
+#     @staticmethod
+#     def factorial (n):
+#         fac = 1
+#         for i in range (1,n+1):
+#             fac *= i
+#         return fac
+#
+#
+# print(Numbers.max(3, 5, 7, 9))
+# print(Numbers.min(3, 5, 7, 9))
+# print(Numbers.average(3, 5, 7, 9))
+# print(Numbers.factorial(5))
+# # print(max(2,9,7,5))
+#
+#
+# lst=[5,8,5,7,4]
+# print(max(lst))
+
+
+# class Date:
+#     def __init__(self, day, month, year):
+#         self.day = day
+#         self.month = month
+#         self.year = year
+#
+#     @classmethod
+#     def from_string(cls, string_data):
+#         day, month, year = map(int, string_data.split("."))
+#         date1 = cls(day, month, year)
+#         return date1
+#
+#     def string_to_db(self):
+#         return f"{self.year}-{self.month}-{self.day}"
+#
+#
+#     # string_data = "23.10.2025"
+#     # day, month, year = map(int, string_data.split("."))
+#     # date = Date(day,month,year)
+#     # print(date.string_to_db())
+#
+#
+# date = Date.from_string("23.10.2025")
+# print(date.string_to_db())
+#
+# date2 = Date.from_string("25.12.2025")
+# print(date2.string_to_db())
+
+# class Account:
+#     rate_usd = 0.013
+#     rate_eur = 0.011
+#     suffix = "RUB"
+#     suffix_usd = "USD"
+#     suffix_eur = "EUR"
+#
+#     def __init__(self, num, surname, persent, value):
+#         self.num = num
+#         self.surname = surname
+#         self.persent = persent
+#         self.value = value
+#         print(f"Счет  №{self.num} принадлежащий {self.surname} был открыт")
+#         print("*" * 50)
+#
+#     def __del__(self):
+#         print("*"*50)
+#         print(f"Счет №{self.num} принадлежащий {self.surname} был закрыт")
+#
+#     @classmethod
+#     def set_eur_rate(cls, rate):
+#         cls.rate_eur = rate
+#
+#     @classmethod
+#     def set_usd_rate(cls, rate):
+#         cls.rate_usd = rate
+#
+#     @staticmethod
+#     def convert(value, rate):
+#         return value * rate
+#
+#     def convert_to_usd(self):
+#         usd_val = Account.convert(self.value, Account.rate_usd)
+#         print(f'Состояние счета: {usd_val}  {Account.suffix_usd}')
+#
+#     def convert_to_eur(self):
+#         eur_val = Account.convert(self.value, Account.rate_eur)
+#         print(f'Состояние счета: {eur_val}  {Account.suffix_eur}')
+#
+#     def print_balance(self):
+#         print(f"Текущий баланс {self.value}  {Account.suffix} ")
+#
+#     def print_info(self):
+#         print("Информация о Счете")
+#         print("-" * 30)
+#         print(f"#{self.num}")
+#         print(f"Владелец : {self.surname}")
+#         self.print_balance()
+#         print(f"Проценты: {self.persent: .0%}")
+#         print("-" * 30)
+#
+#     def edit_owner(self, surname):
+#         self.surname = surname
+#
+#     def add_percents(self):
+#         self.value += self.value * self.persent
+#         print("Проценты были успешно начислены! ")
+#         self.print_balance()
+#
+#
+#     # def with_money(self, val):
+#     #        if val > self.value:
+#     #             print(f"Недостаточно средств {val} {Account.suffix}")
+#     #        else:
+#     #         self.value -= val
+#     #             print(f"{val} {Account.suffix} Были сняты")
+#     #         self.print_balance()
+#     #
+#     # # def add_mon
+#
+#
+#
+#
+# acc = Account("12345", "Долгих", 0.03, 1000)
+# # acc.print_balance()
+# acc.print_info()
+# acc.convert_to_usd()
+# acc.convert_to_eur()
+# print()
+#
+# Account.set_usd_rate(2)
+# Account.set_eur_rate(3)
+# acc.convert_to_usd()
+# acc.convert_to_eur()
+# print()
+#
+# acc.edit_owner("Дюма")
+# acc.print_info()
+#
+# acc.add_percents()
+# print()
+
+import re
+
+
+class UserData:
+    def __init__(self, fio, old, ps, ws):
+        self.varify_fio(fio)
+        self.very_old(old)
+
+        self.__fio = fio
+        self.__old = old
+        self.__password = ps
+        self.__ws = ws
+
+    @staticmethod
+    def varify_fio(fio):
+        if not isinstance(fio, str):
+            raise TypeError("ФИО должно быть строкой")
+        f = fio.split()
+        if len(f) != 3:
+            raise TypeError("Неверный формат")
+        letter = "".join(re.findall(r"[a-zа-яё-]", fio, flags=re.IGNORECASE))
+        for s in f:
+            print(s.strip(letter))
+
+    @staticmethod
+    def very_old(old):
+        if not isinstance(old,int) or old < 14 or old > 100:
+            raise TypeError("Возрост должен быть чилом")
+
+p1 = UserData("Волк@ов Игорь !@2Николаевич", 12,"1243 04484", 80.8)
