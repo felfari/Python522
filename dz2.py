@@ -1,61 +1,65 @@
-from math import sqrt
+class Person:
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
 
-class Pair:
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
-
-    def edit_a(self, a):
-        self.a = a
-
-    def edit_b(self, b):
-        self.b = b
-
-    def sum(self):
-        return self.a + self.b
-
-    def mult(self):
-        return self.a * self.b
+    def __str__(self):
+        return f"{self.name}, {self.age} лет"
 
 
-class RightTriangle(Pair):
-    def __init__(self, a, b):
-        super().__init__(a, b)
-        self.c = self.hypotenuse()
-
-    def hypotenuse(self):
-        hypot = round(sqrt(self.a ** 2 + self.b ** 2), 2)
-        print(f"Гипотенуза ABC: {hypot}")
-        return hypot
-
-    def print_info(self):
-        print(f"Прямоугольный треугольник ABC: ({self.a}, {self.b}, {self.c})")
-
-    def square(self):
-        s = 0.5 * self.mult()
-        print(f"Площадь ABC: {s}")
-
-    def edit_a(self, a):
-        super().edit_a(a)
-        self.c = self.hypotenuse()
-
-    def edit_b(self, b):
-        super().edit_b(b)
-        self.c = self.hypotenuse()
+class Pupil(Person):
 
 
-tr = RightTriangle(5, 8)
-tr.print_info()
-tr.square()
-print()
+    def __init__(self, name, age, group, level):
+        super().__init__(name, age)
+        self.group = group
+        self.level = level
 
-print(f"Сумма: {tr.sum()}")
-print(f"Произведение: {tr.mult()}")
 
-print()
+    def __str__(self):
+        base_info = super().__str__()
+        return f"{base_info}, учится в группе {self.group}, уровень {self.level}"
 
-tr.edit_a(10)
-tr.edit_b(20)
-print(f"Сумма: {tr.sum()}")
-print(f"Произведение: {tr.mult()}")
+
+class Educator(Person):
+
+
+    def __init__(self, name, age, department, level):
+        super().__init__(name, age)
+        self.department = department
+        self.level = level
+
+
+    def __str__(self):
+        base_info = super().__str__()
+        return f"{base_info}, работает в {self.department}, уровень {self.level}"
+
+
+class Alumnus(Person):
+
+
+    def __init__(self, name, age, field, level):
+        super().__init__(name, age)
+        self.field = field
+        self.level = level
+
+
+    def __str__(self):
+        base_info = super().__str__()
+        return f"{base_info}, работает в области {self.field}, уровень {self.level}"
+
+
+members = [
+    Pupil("Батодадаев Даши", 16, "Web_011", 5),
+    Educator("Загдулин Линар", 32, "РПО PD_011", 5),
+    Pupil("Шугани Сергей", 15, "РПО PD_011", 5),
+    Alumnus("Даншин Андрей", 38, "Астрофизика", 110),
+    Pupil("Маркин Даниил", 17, "Python_011", 5),
+    Educator("Баширов Алексей", 45, "Программирование", 20)
+]
+
+
+for member in members:
+    print(member)
