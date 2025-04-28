@@ -16,13 +16,13 @@ class Laptop:
     def display_info(self):
         print(f"Ноутбук: {self.brand}, Процессор: {self.processor}, Память: {self.memory} ГБ")
 
-# Пример использования
+
 roman_laptop = Laptop("HP", "i7", 16)
 roman = Student("Роман", roman_laptop)
 
 vladimir_laptop = Laptop("HP", "i7", 16)
 vladimir = Student("Владимир", vladimir_laptop)
 
-# Вывод информации
+
 roman.display_info()
 vladimir.display_info()
