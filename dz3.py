@@ -1,142 +1,111 @@
-class Account:
-    rate_usd = 0.013
-    rate_eur = 0.011
-    suffix = "RUB"
-    suffix_usd = "USD"
-    suffix_eur = "EUR"
+from abc import ABC, abstractmethod
+import math
 
-    def __init__(self, num, surname, percent, value):
-        self._num = num
-        self._surname = surname
-        self._percent = percent
-        self._value = value
-        print(f"Счет #{self.num} принадлежащий {self.surname} был открыт.")
-        print("*" * 50)
+class Shape(ABC):
+    @abstractmethod
+    def perimeter(self):
+        pass
 
-    def __del__(self):
-        print("*" * 50)
-        print(f"Счет #{self.num} принадлежащий {self.surname} был закрыт.")
+    @abstractmethod
+    def area(self):
+        pass
 
-    @classmethod
-    def set_eur_rate(cls, rate):
-        cls.rate_eur = rate
+    @abstractmethod
+    def draw(self):
+        pass
 
-    @classmethod
-    def set_usd_rate(cls, rate):
-        cls.rate_usd = rate
+    @abstractmethod
+    def info(self):
+        pass
 
-    @staticmethod
-    def convert(value, rate):
-        return value * rate
-
-    def convert_to_usd(self):
-        usd_val = Account.convert(self.value, Account.rate_usd)
-        print(f"Состояние счета: {usd_val} {Account.suffix_usd}")
-
-    def convert_to_eur(self):
-        eur_val = Account.convert(self.value, Account.rate_eur)
-        print(f"Состояние счета: {eur_val} {Account.suffix_eur}")
-
-    def edit_owner(self, surname):
-        self.surname = surname
-
-    def add_percents(self):
-        self.value += self.value * self.percent
-        print("Проценты были успешно начислены!")
-        self.print_balance()
-
-    def withdraw_money(self, val):
-        if val > self.value:
-            print(f"К сожалению у вас нет {val} {Account.suffix}")
-        else:
-            self.value -= val
-            print(f"{val} {Account.suffix} было успешно снято!")
-        self.print_balance()
-
-    def add_money(self, val):
-        self.value += val
-        print(f"{val} {Account.suffix} было успешно добавлено!")
-        self.print_balance()
-
-    def print_balance(self):
-        print(f"Текущий баланс {self.value} {Account.suffix}")
-
-    def print_info(self):
-        print("Информация о счете:")
-        print("-" * 20)
-        print(f"#{self.num}")
-        print(f"Владелец: {self.surname}")
-        self.print_balance()
-        print(f"Проценты: {self.percent:.0%}")
-        print("-" * 20)
-
-    # Декораторы @property для всех атрибутов
-    @property
-    def num(self):
-        return self._num
-
-    @num.setter
-    def num(self, new_num):
-        self._num = new_num
+class Square(Shape):
+    def __init__(self, side, color):
+        self.side = side
+        self.color = color
 
     @property
-    def surname(self):
-        return self._surname
-
-    @surname.setter
-    def surname(self, new_surname):
-        self._surname = new_surname
+    def perimeter(self):
+        return self.side * 4
 
     @property
-    def percent(self):
-        return self._percent
+    def area(self):
+        return self.side ** 2
 
-    @percent.setter
-    def percent(self, new_percent):
-        if new_percent < 0:
-            raise ValueError("Процентная ставка не может быть отрицательной")
-        self._percent = new_percent
+    def draw(self):
+        for _ in range(self.side):
+            print("*" * self.side)
+
+    def info(self):
+        print(f"===Квадрат===")
+        print(f"Сторона: {self.side}")
+        print(f"Цвет: {self.color}")
+        print(f"Площадь: {self.area}")
+        print(f"Периметр: {self.perimeter}")
+
+class Rectangle(Shape):
+    def __init__(self, length, width, color):
+        self.length = length
+        self.width = width
+        self.color = color
 
     @property
-    def value(self):
-        return self._value
+    def perimeter(self):
+        return 2 * (self.length + self.width)
 
-    @value.setter
-    def value(self, new_value):
-        if new_value < 0:
-            raise ValueError("Баланс не может быть отрицательным")
-        self._value = new_value
+    @property
+    def area(self):
+        return self.length * self.width
 
+    def draw(self):
+        for _ in range(self.length):
+            print("*" * self.width)
 
+    def info(self):
+        print(f"===Прямоугольник===")
+        print(f"Длина: {self.length}")
+        print(f"Ширина: {self.width}")
+        print(f"Цвет: {self.color}")
+        print(f"Площадь: {self.area}")
+        print(f"Периметр: {self.perimeter}")
 
-acc = Account("12345", "Долгих", 0.03, 1000)
+class Triangle(Shape):
+    def __init__(self, side1, side2, side3, color):
+        self.side1 = side1
+        self.side2 = side2
+        self.side3 = side3
+        self.color = color
 
-acc.print_info()
-acc.convert_to_usd()
-acc.convert_to_eur()
-print()
+    @property
+    def perimeter(self):
+        return self.side1 + self.side2 + self.side3
 
-Account.set_usd_rate(2)
-Account.set_eur_rate(3)
-acc.convert_to_usd()
-acc.convert_to_eur()
-print()
+    @property
+    def area(self):
+        s = self.perimeter / 2
+        return math.sqrt(s * (s - self.side1) * (s - self.side2) * (s - self.side3))
 
-acc.edit_owner("Дюма")
-acc.print_info()
-print()
+    def draw(self):
+        for i in range(1, self.side1 + 1):
+            print(" " * (self.side1 - i) + "*" * (2 * i - 1))
 
-acc.add_percents()
-print()
+    def info(self):
+        print(f"===Треугольник===")
+        print(f"Сторона 1: {self.side1}")
+        print(f"Сторона 2: {self.side2}")
+        print(f"Сторона 3: {self.side3}")
+        print(f"Цвет: {self.color}")
+        print(f"Площадь: {self.area:.2f}")
+        print(f"Периметр: {self.perimeter}")
 
-acc.withdraw_money(100)
-print()
+# Примеры использования
+square = Square(3, "red")
+square.info()
+square.draw()
 
-acc.withdraw_money(3000)
-print()
+rectangle = Rectangle(3, 7, "green")
+rectangle.info()
+rectangle.draw()
 
-acc.add_money(5000)
-print()
-
-acc.withdraw_money(3000)
-print()
+triangle = Triangle(6, 6, 11, "blue")
+triangle.info()
+triangle.draw()
