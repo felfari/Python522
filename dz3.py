@@ -97,7 +97,7 @@ class Triangle(Shape):
         print(f"Площадь: {self.area:.2f}")
         print(f"Периметр: {self.perimeter}")
 
-# Примеры использования
+
 square = Square(3, "red")
 square.info()
 square.draw()
