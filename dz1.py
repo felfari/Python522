@@ -1,61 +1,42 @@
-from math import sqrt
+import json
+from random import choice
 
 
-class Pair:
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
+def gen_person():
+    name = ''
+    tel = ''
 
-    def edit_a(self, a):
-        self.a = a
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'k', 'l', 'm', 'n']
+    nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
 
-    def edit_b(self, b):
-        self.b = b
+    while len(name) != 7:
+        name += choice(letters)
+    print(name)
 
-    def sum(self):
-        return self.a + self.b
+    while len(tel) != 10:
+        tel += choice(nums)
+    print(tel)
 
-    def mult(self):
-        return self.a * self.b
+    person = {
+        'name': name,
+        'tel': tel
+    }
 
-
-class RightTriangle(Pair):
-    def __init__(self, a, b):
-        super().__init__(a, b)
-        self.c = self.hypotenuse()
-
-    def hypotenuse(self):
-        hypot = round(sqrt(self.a ** 2 + self.b ** 2), 2)
-        print(f"Гипотенуза ABC: {hypot}")
-        return hypot
-
-    def print_info(self):
-        print(f"Прямоугольный треугольник ABC: ({self.a}, {self.b}, {self.c})")
-
-    def square(self):
-        s = 0.5 * self.mult()
-        print(f"Площадь ABC: {s}")
-
-    def edit_a(self, a):
-        super().edit_a(a)
-        self.c = self.hypotenuse()
-
-    def edit_b(self, b):
-        super().edit_b(b)
-        self.c = self.hypotenuse()
+    return person, tel
 
 
-tr = RightTriangle(5, 8)
-tr.print_info()
-tr.square()
-print()
+def write_json(person, num):
+    try:
+        data = json.load(open("person.json"))
+    except FileNotFoundError:
+        data = {}
 
-print(f"Сумма: {tr.sum()}")
-print(f"Произведение: {tr.mult()}")
+    data[num] = person
+    with open('persons.json', 'w') as f:
+        json.dump(data,f, indent=2)
 
-print()
 
-tr.edit_a(10)
-tr.edit_b(20)
-print(f"Сумма: {tr.sum()}")
-print(f"Произведение: {tr.mult()}")
+# for i in range(5):
+#     write_json(gen_person()[0], gen_person()[1])
+person1,tel1 = gen_person()
+write_json(person1,tel1)
