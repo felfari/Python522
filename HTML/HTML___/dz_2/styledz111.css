@@ -1,0 +1,79 @@
+
+header {
+    text-align: center;
+    
+}
+.right {
+    text-align: right;
+}
+
+.big{
+    font-size: large;
+    color: black;
+}
+
+.left{
+    text-align: left;
+}
+
+h1 {
+    color: #041c36;}
+
+
+h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    
+
+
+}
+h4{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: 300;
+    color: #3e7dad;
+
+
+}
+
+h4{
+    text-align: center;
+
+    
+ 
+}
+main {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.highlight-blac {
+    color: black;
+}
+.highlight-blue {
+    color: blue;
+}
+
+.highlight-green {
+    color: green;
+}
+
+.highlight-red {
+    color: red;
+}
+
+.highlight-orange {
+    color: orange;
+}
+
+.highlight-purple {
+    color: purple;
+}
+
+
+
+
+.black {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+}
