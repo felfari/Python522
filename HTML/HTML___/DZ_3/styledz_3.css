@@ -1,0 +1,68 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    font-size: large;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+ul{
+    list-style: lower-alpha;
+    color: black;
+    font-weight: 700;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.red{
+    list-style: url(red_marker.png);
+}
+
+.bl{
+    list-style: url(black_marker.png);
+}
+
+.blu{
+    list-style: url(blue_marker.png);
+}
+
+
+.orn{
+ list-style: url(orange_marker.png);
+ 
+}
+.green{
+    list-style: url(green_marker.png);
+}
+
+.colorred{
+    color: red;
+}
+
+.coloryel{
+    color: rgb(121, 129, 4);
+}
+
+.colorgren{
+    color: green;
+}
+
+.colorbluev{
+    color: blueviolet;
+}
+
+.colorblu{
+    color:blue
+}
+
+
+
+
+
