@@ -1,0 +1,40 @@
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+td {
+    border: 1px solid black;
+    height: 50px; 
+    width: 50px; 
+    
+    vertical-align: middle;
+}
+
+
+.brown {
+    background-color: #664a03; /* Коричневый */
+}
+
+.orange {
+    background-color: #FFC300; /* Оранжевый */
+}
+
+.yellow {
+    background-color: #FFFF00; /* Желтый */
+    
+}
+
+.blue {
+    background-color: #3d06f0; /* Синий */
+}
+
+.purple {
+    background-color: #D6A2E8; /* Фиолетовый */
+}
+
+.gray {
+    background-color: #8d8a8a; /* Светло-серый */
+}
