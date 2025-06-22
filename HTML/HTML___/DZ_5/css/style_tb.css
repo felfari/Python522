@@ -1,0 +1,45 @@
+body{
+    background-image: url(../img/pattern.png);
+    margin: 0;
+    padding: 80px 60px;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+   
+   
+}
+
+
+td {padding: 12px 15px;
+    text-align: center;
+    
+  border-inline: 1px solid rgb(127, 125, 125);
+   box-shadow: 5px 5px 50px  rgba(0, 0, 0, 0.1);
+}
+tr {
+background-color: #fbfbf6;
+   
+}    
+
+    
+
+
+th {padding: 12px 15px;
+    text-align: center;
+    background-image:  url(../img/tablebg.jpg);
+   border-left: 1px solid rgb(127, 125, 125);
+    border-right: 1px solid rgb(127, 125, 125);
+    border-bottom: 1px solid rgb(127, 125, 125);
+    border-top: 1px solid rgb(127, 125, 125);
+}
+
+.row {
+    background-color: #848282; 
+     
+}
+
+
+
